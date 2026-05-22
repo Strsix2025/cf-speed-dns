@@ -2,12 +2,16 @@ name: CF Speed DNS
 
 on:
   schedule:
-    - cron: "0 * * * *"   # 每小时
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    # ⭐ 关键：提前切到 Node 24
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout
